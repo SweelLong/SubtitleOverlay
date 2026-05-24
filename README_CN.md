@@ -50,7 +50,7 @@
 
 ## 使用说明
 
-1. 在任意应用中播放音频（Netflix、YouTube、Zoom、Safari、Chrome 等）
+1. 在任意应用中播放音频（B站、抖音、浏览器 等）
 2. 在字幕叠加应用的下拉菜单中选择目标应用
 3. 点击**开始**即可开始音频采集和转写
 4. 字幕悬浮窗口出现——可拖拽至屏幕任意位置
@@ -99,20 +99,18 @@
 
 ```
  目标应用音频 → ScreenCaptureKit → SCStream (16kHz 单声道 PCM)
-                                            ↓
-                            ┌─── 语音识别层 ──────────┐
-                            │ SFSpeechRecognizer（设备端）│
-                            │ 或 whisper.cpp（自定义模型） │
-                            └──────────┬──────────────┘
-                                       ↓
-                                   识别文字
-                                       ↓
-                            ┌─── 翻译层（可选）─────────┐
-                            │ TranslationSession（设备端）│
-                            └──────────┬──────────────┘
+                                       ↓ 语音识别层
+                            ┌─────────────────────┐
+                            │ SFSpeechRecognizer  │
+                            │ whisper.cpp         │
+                            └──────────┬──────────┘
+                                       ↓ 语音翻译层（可选）
+                            ┌─────────────────────┐
+                            │ TranslationSession  │
+                            └──────────┬──────────┘
                                        ↓
                             ┌────── 翻译文字 ──────┐
-                            ↓                      ↓
+                            ↓                     ↓
                    ContentView 预览         SubtitlePanelView
                    （实时转写）              （悬浮字幕窗口）
 ```
@@ -158,4 +156,4 @@ SubtitleOverlay/
 
 ## 开源协议
 
-Copyright (c) 2025 SweelLong。详见 [LICENSE](LICENSE)。
+Copyright (c) 2026 SweelLong。详见 [LICENSE](LICENSE)。

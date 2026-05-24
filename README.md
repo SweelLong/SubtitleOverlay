@@ -99,22 +99,20 @@ The app separates **speech recognition** (audio → text) from **machine transla
 
 ```
  Target App Audio → ScreenCaptureKit → SCStream (16kHz mono PCM)
-                                              ↓
-                              ┌─── Speech Recognition Layer ───┐
-                              │  SFSpeechRecognizer (on-device) │
-                              │  or whisper.cpp (custom GGML)   │
-                              └────────────┬────────────────────┘
-                                           ↓
-                                     Recognized Text
-                                           ↓
-                              ┌─── Translation Layer (optional) ───┐
-                              │     TranslationSession (on-device) │
-                              └────────────┬───────────────────────┘
-                                           ↓
-                              ┌─────── Translated Text ───────┐
-                              ↓                                ↓
-                     ContentView Preview               SubtitlePanelView
-                     (live transcription)             (floating overlay)
+                                       ↓ Speech Recognition Layer
+                            ┌─────────────────────┐
+                            │ SFSpeechRecognizer  │
+                            │ whisper.cpp         │
+                            └──────────┬──────────┘
+                                       ↓ Translation Layer(optional)
+                            ┌─────────────────────┐
+                            │ TranslationSession  │
+                            └──────────┬──────────┘
+                                       ↓
+                            ┌─ Translated Text  ──┐
+                            ↓                     ↓
+                   ContentView Preview     SubtitlePanelView
+                   (live transcription)   (floating overlay)
 ```
 
 | Layer | Framework | Role |
@@ -158,4 +156,4 @@ SubtitleOverlay/
 
 ## License
 
-Copyright (c) 2025 SweelLong. See [LICENSE](LICENSE) for full terms.
+Copyright (c) 2026 SweelLong. See [LICENSE](LICENSE) for full terms.
